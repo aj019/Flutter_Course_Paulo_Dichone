@@ -4,11 +4,12 @@ import 'ui/container.dart';
 import 'ui/stack.dart';
 import 'ui/scaffold.dart';
 import 'ui/bottom_navigation.dart';
+import 'ui/gesture.dart';
 
 void main() {
   runApp(new MaterialApp(
           title: 'Welcome App',
-          home: new BottomNavigation_Example()
+          home: new Gesture_Example("Gesture Detection")
   )
   );
 }
