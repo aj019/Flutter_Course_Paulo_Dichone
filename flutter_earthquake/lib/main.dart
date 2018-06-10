@@ -42,6 +42,21 @@ class QuakeAppState extends State<QuakeApp> {
               _features = _data['features'];
           });
   }
+  
+  void _showAlertMessage(BuildContext context,String message){
+    var alert = new AlertDialog(
+      title: new Text("Title"),
+      content: new Text('$message'),
+      actions: <Widget>[
+        new FlatButton(onPressed: (){
+          Navigator.pop(context);
+        },
+            child: new Text('Ok'))
+      ],
+    );
+    
+    showDialog(context: context, child: alert);
+  }
 
 
   @override
@@ -73,6 +88,9 @@ class QuakeAppState extends State<QuakeApp> {
                      child: new Text('${_features[i]['properties']['mag']}',style: new TextStyle(fontSize: 16.0,),),
                    ),
                    subtitle: new Text('${_features[i]['properties']['place']}',style: new TextStyle(fontStyle: FontStyle.italic),),
+                   onTap: (){
+                     _showAlertMessage(context,'${_features[i]['properties']['place']}');
+                   },
                  ),
                  )
 
