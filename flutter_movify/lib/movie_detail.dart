@@ -2,23 +2,11 @@ import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 
 
-class MovieDetail extends StatefulWidget{
-
-  final movie;
-  MovieDetail(this.movie);
-
-  @override
-  MovieDetailState createState() {
-    return new MovieDetailState(movie);
-  }
-
-}
-
-class MovieDetailState extends State<MovieDetail> {
+class MovieDetail extends StatelessWidget{
 
   final movie;
   var image_url = 'https://image.tmdb.org/t/p/w500/';
-  MovieDetailState(this.movie);
+  MovieDetail(this.movie);
   Color mainColor = const Color(0xff3C3261);
 
   @override
@@ -32,8 +20,8 @@ class MovieDetailState extends State<MovieDetail> {
             filter: new ui.ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
             child: new Container(
               color: Colors.black.withOpacity(0.5),
-              // TODO: child: _buildContent(),
-            ),),
+            )
+            ,),
           new SingleChildScrollView(
             child: new Container(
               margin: const EdgeInsets.all(20.0),
@@ -69,12 +57,9 @@ class MovieDetailState extends State<MovieDetail> {
                   new Row(
                     children: <Widget>[
                       new Expanded(
-                        child: new InkWell(
-                            onTap: null,
                             child: new Container(
                               width: 150.0,
                               height: 60.0,
-                              padding: const EdgeInsets.all(4.0),
                               alignment: Alignment.center,
                               child: new Text('Rate Movie',style: new TextStyle(color: Colors.white,fontFamily: 'Arvo',fontSize: 20.0),),
                               decoration: new BoxDecoration(
@@ -82,13 +67,10 @@ class MovieDetailState extends State<MovieDetail> {
                                 color: const Color(0xaa3C3261)
                               ),
                             )
-                        ),
                       ),
                       new Padding(
                         padding: const EdgeInsets.all(16.0),
-                        child: new InkWell(
-                            onTap: null,
-                            child: new Container(
+                        child: new Container(
                               padding: const EdgeInsets.all(16.0),
                               alignment: Alignment.center,
                               child: new Icon(Icons.share,color: Colors.white,),
@@ -96,14 +78,11 @@ class MovieDetailState extends State<MovieDetail> {
                                   borderRadius: new BorderRadius.circular(10.0),
                                   color: const Color(0xaa3C3261)
                               ),
-                            )
-                        ),
+                            ),
                       ),
                       new Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: new InkWell(
-                            onTap: null,
-                            child: new Container(
+                        child: new Container(
                               padding: const EdgeInsets.all(16.0),
                               alignment: Alignment.center,
                               child: new Icon(Icons.bookmark,color: Colors.white,),
@@ -112,7 +91,7 @@ class MovieDetailState extends State<MovieDetail> {
                                   color: const Color(0xaa3C3261)
                               ),
                             )
-                        ),
+
                       ),
 
                     ],

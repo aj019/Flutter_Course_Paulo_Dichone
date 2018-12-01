@@ -30,7 +30,9 @@ class MaterialPageReveal extends StatelessWidget{
                 pageViewModel: pages[1],
                 percentVisible: 0.9,)
           ),
-          new PagerIndicator()
+          new PagerIndicator(
+            pageIndicatorViewModel: new PageIndicatorViewModel(pages, 1, SlideDirection.none, 0.0),
+          ),
         ],
       ),
     );
